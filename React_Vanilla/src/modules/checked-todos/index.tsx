@@ -1,11 +1,9 @@
-import * as React from "react";
-import { memo } from "react";
+import { FC, memo } from "react";
+import ErrorBoundary from "@lib/components/ErrorBoundary";
+import List from "@modules/checked-todos/components/List";
 
-interface CheckedTodosProps {}
-
-const CheckedTodos: React.FC<CheckedTodosProps> = ({}) => {
-  // TODO: CheckedTodos
-  return <h1>CheckedTodos</h1>;
+const CheckedTodos: FC = () => {
+  return <ErrorBoundary children={<List />} />;
 };
 
 export default memo(CheckedTodos);
