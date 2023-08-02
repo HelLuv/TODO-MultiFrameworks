@@ -3,4 +3,5 @@ export type TTodo = {
   title: string;
   descr?: string;
   created_at: string;
+  updated_at?: string | null;
 };
