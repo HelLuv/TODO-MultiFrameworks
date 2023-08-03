@@ -4,17 +4,16 @@ import { useTodosStore } from "@store/index.ts";
 import SingleTodo from "@modules/unchecked-todos/components/SingleTodo";
 import CreateTodo from "@modules/unchecked-todos/components/CreateTodo";
 import ErrorBoundary from "@lib/components/ErrorBoundary";
+import s from "./List.module.scss";
 
-interface ListProps {}
-
-const List: FC<ListProps> = ({}) => {
+const List: FC = () => {
   const todos = useTodosStore((state) => state.todos);
 
   return (
     <Card
       title="TODOs"
       bordered={false}
-      style={{ width: "50%", marginBottom: "1rem" }}
+      className={s.card}
       bodyStyle={{ paddingTop: "1rem", paddingBottom: "1rem" }}
     >
       {todos.map((todo) => (
@@ -22,7 +21,9 @@ const List: FC<ListProps> = ({}) => {
       ))}
       <ErrorBoundary children={<CreateTodo />} />
 
-      {todos.length === 0 && <Empty description="No TODOs in this list" />}
+      {todos.length === 0 && (
+        <Empty description="No TODOs in this list" style={{ marginTop: 8 }} />
+      )}
     </Card>
   );
 };
