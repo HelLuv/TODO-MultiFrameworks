@@ -17,6 +17,13 @@
   will-change: transform;
   background: linear-gradient(135deg, rgb(114, 46, 209) 0%, rgb(22, 119, 255) 30%, rgb(245, 34, 45) 70%, rgb(19, 194, 194) 100%) 0% 0% / 200% 200%;
   animation: 10s ease 0s infinite normal none running glow;
+
+  @media (max-width: 768px) {
+    width: 400px;
+  }
+  @media (max-width: 650px) {
+    width: 200px;
+  }
 }
 
 @keyframes glow {

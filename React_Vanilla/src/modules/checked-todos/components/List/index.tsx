@@ -2,6 +2,7 @@ import { FC, memo } from "react";
 import { Card, Empty } from "antd";
 import { useTodosStore } from "@store/index.ts";
 import SingleTodo from "@modules/checked-todos/components/SingleTodo";
+import s from "./List.module.scss";
 
 interface ListProps {}
 
@@ -12,7 +13,7 @@ const List: FC<ListProps> = ({}) => {
     <Card
       title="Completed TODOs"
       bordered={false}
-      style={{ width: "50%", marginBottom: "1rem" }}
+      className={s.card}
       bodyStyle={{ paddingTop: "1rem", paddingBottom: "1rem" }}
     >
       {todos.map((todo) => (
