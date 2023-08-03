@@ -9,7 +9,7 @@ interface SingleTodoProps {
   todo: TTodo;
 }
 
-const SingleTodo: FC<SingleTodoProps> = ({ todo: { title, id } }) => {
+const SingleTodo: FC<SingleTodoProps> = ({ todo: { title, id, descr } }) => {
   const deleteTodo = useTodosStore((state) => state.deleteTodo);
   const uncompleteTodo = useTodosStore((state) => state.uncompleteTodo);
 
@@ -24,13 +24,8 @@ const SingleTodo: FC<SingleTodoProps> = ({ todo: { title, id } }) => {
   return (
     <div className={s.todoWrapper}>
       <Checkbox onClick={uncompleteTodoHandler} defaultChecked>
-        <h3
-          style={{
-            textDecorationLine: "line-through",
-          }}
-        >
-          {title}
-        </h3>
+        <h3 className={s.title}>{title}</h3>
+        <span className={s.descr}>{descr}</span>
       </Checkbox>
 
       <div>

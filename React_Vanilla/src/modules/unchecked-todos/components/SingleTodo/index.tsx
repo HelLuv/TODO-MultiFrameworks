@@ -1,21 +1,16 @@
-import { FC, memo, useState } from "react";
+import { FC, memo } from "react";
 import { TTodo } from "@src/types/index.ts";
-import { Button, Checkbox } from "antd";
+import { Button, Checkbox, Space } from "antd";
 import s from "./SingleTodo.module.scss";
-import {
-  DeleteOutlined,
-  EditOutlined,
-  StarFilled,
-  StarOutlined,
-} from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { useTodosStore } from "@store/index.ts";
+import FavTodo from "@modules/unchecked-todos/components/FavTodo";
 
 interface SingleTodoProps {
   todo: TTodo;
 }
 
 const SingleTodo: FC<SingleTodoProps> = ({ todo: { title, id, descr } }) => {
-  const [isStared, setIsStared] = useState(false);
   const completeTodo = useTodosStore((state) => state.completeTodo);
   const deleteTodo = useTodosStore((state) => state.deleteTodo);
 
@@ -34,28 +29,14 @@ const SingleTodo: FC<SingleTodoProps> = ({ todo: { title, id, descr } }) => {
         <span className={s.descr}>{descr}</span>
       </Checkbox>
 
-      <div>
+      <Space size={[1, 1]}>
         <Button
           type="link"
           icon={<EditOutlined className={s.icon} />}
           title="Edit TODO"
         />
 
-        {isStared ? (
-          <Button
-            type="link"
-            icon={<StarFilled className={s.icon} />}
-            title="Remove TODO from Favorites"
-            onClick={() => setIsStared(false)}
-          />
-        ) : (
-          <Button
-            type="link"
-            icon={<StarOutlined className={s.icon} />}
-            title="Add TODO to Favorites"
-            onClick={() => setIsStared(true)}
-          />
-        )}
+        <FavTodo />
 
         <Button
           type="link"
@@ -65,7 +46,7 @@ const SingleTodo: FC<SingleTodoProps> = ({ todo: { title, id, descr } }) => {
           title="Delete TODO"
           onClick={deleteTodoHandler}
         />
-      </div>
+      </Space>
     </div>
   );
 };

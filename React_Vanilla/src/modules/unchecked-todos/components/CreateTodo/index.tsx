@@ -1,25 +1,32 @@
-import { FC, memo, useState } from "react";
+import { FC, memo } from "react";
 import PlusOutlined from "@ant-design/icons/PlusOutlined";
 import { Button } from "antd";
 import s from "./CreateTodo.module.scss";
-import CreateFields from "@modules/unchecked-todos/components/CreateFields";
+import CreateForm from "@modules/unchecked-todos/components/CreateForm";
+import { useTodosStore } from "@store/index.ts";
 
 const CreateTodo: FC = () => {
-  const [isCreateMode, setIsCreateMode] = useState(false);
+  const setIsCreating = useTodosStore((state) => state.setIsCreating);
+  const isCreating = useTodosStore((state) => state.isCreating);
 
   function onCreateHandler() {
-    setIsCreateMode(true);
+    setIsCreating(true);
   }
 
   return (
     <div
       className={s.createWrapper}
-      style={!isCreateMode ? { border: "none" } : {}}
+      style={!isCreating ? { border: "none" } : {}}
     >
-      {isCreateMode ? (
-        <CreateFields />
+      {isCreating ? (
+        <CreateForm />
       ) : (
-        <Button type="link" icon={<PlusOutlined />} onClick={onCreateHandler}>
+        <Button
+          type="link"
+          icon={<PlusOutlined />}
+          onClick={onCreateHandler}
+          className={s.button}
+        >
           Create new TODO
         </Button>
       )}

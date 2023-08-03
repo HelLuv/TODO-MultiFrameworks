@@ -1,4 +1,7 @@
+@import "src/styles/global";
+
 .todoWrapper {
+  min-height: 48px;
   border-bottom: 1px solid #303030;
   border-radius: 8px 8px 0 0;
   display: flex;
@@ -16,16 +19,12 @@
 
 .title {
   margin: 0;
+  @include one-line;
 }
 
 .descr {
   font-size: 12px;
   line-height: 18px;
-  word-wrap: break-word;
-  word-break: break-all;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  @include one-line;
   padding-bottom: 2px;
 }
