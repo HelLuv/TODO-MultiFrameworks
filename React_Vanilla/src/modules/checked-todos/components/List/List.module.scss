@@ -9,4 +9,21 @@
   @media (max-width: 768px) {
     width: 100%;
   }
+
+  :global(.ant-card-body) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+
+    @media (max-width: 768px) {
+      padding: 0.5rem;
+    }
+  }
+
+  :global(.ant-card-head) {
+    @media (max-width: 768px) {
+      padding: 0.5rem;
+      min-height: 40px;
+    }
+  }
 }

@@ -10,12 +10,7 @@ const List: FC = () => {
   const todos = useTodosStore((state) => state.todos);
 
   return (
-    <Card
-      title="TODOs"
-      bordered={false}
-      className={s.card}
-      bodyStyle={{ paddingTop: "1rem", paddingBottom: "1rem" }}
-    >
+    <Card title="TODOs" bordered={false} className={s.card}>
       {todos.map((todo) => (
         <SingleTodo todo={todo} key={todo.id} />
       ))}
