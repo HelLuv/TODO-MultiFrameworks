@@ -1,12 +1,16 @@
-import UncheckedTodos from "../modules/unchecked-todos";
-import CheckedTodos from "../modules/checked-todos";
+import HomePage from "@pages/home-page";
+import { ConfigProvider, theme } from "antd";
 
 function App() {
   return (
-    <>
-      <UncheckedTodos />
-      <CheckedTodos />
-    </>
+    <ConfigProvider
+      theme={{
+        algorithm: theme.darkAlgorithm,
+        // token: { colorText: "#dcdcf2d9" },
+      }}
+    >
+      <HomePage />
+    </ConfigProvider>
   );
 }
 

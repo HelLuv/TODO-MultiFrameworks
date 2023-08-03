@@ -1,11 +1,11 @@
-import * as React from "react";
-import { memo } from "react";
+import { FC, memo } from "react";
+import ErrorBoundary from "@lib/components/ErrorBoundary";
+import List from "./components/List";
 
 interface UncheckedTodosProps {}
 
-const UncheckedTodos: React.FC<UncheckedTodosProps> = ({}) => {
-  // TODO: UncheckedTodos
-  return <h1>UncheckedTodos</h1>;
+const UncheckedTodos: FC<UncheckedTodosProps> = ({}) => {
+  return <ErrorBoundary children={<List />} />;
 };
 
 export default memo(UncheckedTodos);

@@ -1,0 +1,12 @@
+.empty {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  & [class~=ant-empty-footer] {
+    & > button {
+      height: 40px;
+    }
+  }
+}
