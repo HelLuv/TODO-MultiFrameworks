@@ -3,6 +3,10 @@
   border: 1px solid #303030;
   //padding: 3px 11px 3px 0;
   border-radius: 8px;
+
+  @media (max-width: 768px) {
+    margin-top: 0.5rem;
+  }
 }
 
 .button {
