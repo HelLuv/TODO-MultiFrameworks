@@ -14,7 +14,7 @@ interface SingleTodoProps {
   todo: TTodo;
 }
 
-const SingleTodo: FC<SingleTodoProps> = ({ todo: { title, id } }) => {
+const SingleTodo: FC<SingleTodoProps> = ({ todo: { title, id, descr } }) => {
   const [isStared, setIsStared] = useState(false);
   const completeTodo = useTodosStore((state) => state.completeTodo);
   const deleteTodo = useTodosStore((state) => state.deleteTodo);
@@ -30,7 +30,8 @@ const SingleTodo: FC<SingleTodoProps> = ({ todo: { title, id } }) => {
   return (
     <div className={s.todoWrapper}>
       <Checkbox onClick={completeTodoHandler}>
-        <h3>{title}</h3>
+        <h3 className={s.title}>{title}</h3>
+        <span className={s.descr}>{descr}</span>
       </Checkbox>
 
       <div>

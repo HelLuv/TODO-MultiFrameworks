@@ -16,7 +16,6 @@ export const MOCK_TODOS: Array<TTodo> = [
   {
     id: 3,
     title: "Create small todo app #3",
-    descr: "nuff said",
     created_at: "2023-08-02T20:16:17+0000",
   },
   {
